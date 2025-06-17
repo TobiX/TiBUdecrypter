@@ -255,6 +255,9 @@ def main(args):
     print(SUCCESS_MESSAGE.format(decrypted_filename=decrypted_filename))
 
 
-if __name__ == '__main__':
+def run():
     ARGS = docopt.docopt(__doc__, version=VERSION)
     sys.exit(main(ARGS))
+
+if __name__ == '__main__':
+    run()
