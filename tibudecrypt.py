@@ -164,6 +164,8 @@ class TiBUFile(object):
             self.pass_hmac_result = base64.b64decode(pass_hmac_result)
             self.enc_privkey_spec = base64.b64decode(enc_privkey_spec)
             self.enc_sesskey_spec = base64.b64decode(enc_sesskey_spec)
+            print('Password forgotten? hashcat -O -m 160 --hex-salt --increment -a 3 {result}:{salt}'.format(
+                salt=self.pass_hmac_key.hex(), result=self.pass_hmac_result.hex()))
         except binascii.Error:
             # Raised if the b64decode fails.
             raise
